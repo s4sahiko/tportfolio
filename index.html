@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Raj - Interactive Penetration Test Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="terminal-screen">
+        <div id="terminal-output">
+            </div>
+
+        <div id="status-bar">
+            <span id="system-status" class="cli-info">STATUS: Initializing...</span>
+            <span id="clock-time" class="cli-info">TIME: 00:00:00</span>
+        </div>
+
+        <div id="command-input-line">
+            <span class="cli-command">user@sahil-pentest:~$</span> 
+            <input type="text" id="command-input" autofocus autocomplete="off">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

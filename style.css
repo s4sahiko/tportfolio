@@ -1,0 +1,170 @@
+/* Custom Scrollbar - Terminal Style */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #00ff00; /* Neon Green */
+    border-radius: 0;
+    border: 1px solid #00ff00;
+}
+::-webkit-scrollbar-track {
+    background: #000000; 
+}
+
+/* Base Styles */
+:root {
+    --primary-color: #00ff00; /* Solid Neon Green */
+    --secondary-color: #00aaff; /* Blue for contrast info */
+    --text-dark: #000000;
+    --bg-dark: #000000; /* Absolute Black */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Code', monospace; 
+}
+
+body, html {
+    height: 100%;
+    background-color: var(--bg-dark);
+    color: var(--primary-color); 
+    line-height: 1.4;
+    overflow-x: hidden;
+    /* FANTASTIC ADDITION: Neon Glow */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.4); 
+}
+
+/* Terminal Screen Wrapper (The Shell) */
+#terminal-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 10px;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #000000,
+            #000000 1px,
+            rgba(0, 255, 0, 0.05) 1px,
+            rgba(0, 255, 0, 0.05) 2px
+        );
+}
+
+/* Output Area (Scrollable History) */
+#terminal-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 5px; 
+    white-space: pre-wrap;
+}
+
+/* --- FANTASTIC ADDITIONS --- */
+
+/* 1. Data Stream Effect (For 'access' command) */
+.data-stream-effect {
+    background: 
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0, 255, 0, 0.2) 0px, 
+            rgba(0, 0, 0, 0.8) 1px, 
+            #000000 5px
+        );
+    animation: stream-scroll 0.1s linear infinite;
+    overflow: hidden !important; 
+    color: #fff !important; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6) !important; /* White stream glow */
+}
+
+@keyframes stream-scroll {
+    to {
+        background-position: 0 50px; 
+    }
+}
+
+/* 2. Status Bar */
+#status-bar {
+    flex-shrink: 0;
+    padding: 5px 0;
+    border-top: 1px solid rgba(0, 255, 0, 0.6);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    color: var(--secondary-color);
+}
+
+/* 3. Boot Animation */
+.boot-anim-line {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: expandLine 1.5s forwards;
+    display: block;
+}
+
+@keyframes expandLine {
+    to {
+        width: 100%;
+    }
+}
+
+
+/* --- END FANTASTIC ADDITIONS --- */
+
+/* Command Input Line (Fixed at bottom) */
+#command-input-line {
+    flex-shrink: 0;
+    padding-top: 5px;
+    border-top: 1px dashed rgba(0, 255, 0, 0.4);
+    display: flex;
+    align-items: center;
+}
+
+#command-input {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-family: 'Fira Code', monospace;
+    font-size: 1em;
+    outline: none;
+    flex-grow: 1;
+    padding-left: 5px;
+    caret-color: var(--primary-color); 
+    text-shadow: none; /* Remove glow from input text for better readability */
+}
+
+/* CLI Text Styling */
+.cli-command {
+    color: #ff00ff; /* Magenta for the prompt */
+    flex-shrink: 0;
+    text-shadow: 0 0 3px rgba(255, 0, 255, 0.5); /* Magenta glow */
+}
+.cli-response-title {
+    color: #00aaff; /* Blue for main titles */
+    font-weight: 700;
+    display: block;
+    margin: 10px 0 5px 0;
+    text-shadow: 0 0 5px rgba(0, 170, 255, 0.5); /* Blue glow */
+}
+.cli-error {
+    color: #ff0000; /* Red for errors */
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Red glow */
+}
+.cli-info {
+    color: #00ffc8; /* Cyan for status messages */
+    text-shadow: 0 0 3px rgba(0, 255, 200, 0.5); /* Cyan glow */
+}
+.cli-success {
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.6); /* Green glow */
+}
+.cli-list {
+    padding-left: 20px;
+    margin: 5px 0;
+}
+.cli-list-item::before {
+    content: "->";
+    color: var(--secondary-color);
+    margin-right: 5px;
+}
