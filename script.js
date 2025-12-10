@@ -85,7 +85,7 @@ to enhance overall security posture. With a proactive mindset and a focus on con
 [ISSUER] SecOps Group
 -------------------------------------------------------
 
-<span class="cli-info">--- CCNP - Certified Cybersecurity Network Professional ---</span>
+<span class="cli-info">--- CCEP - Certified Cybersecurity Educator Professional ---</span>
 [ISSUER] Red Team Leader
 -------------------------------------------------------
 
